@@ -1695,12 +1695,12 @@ def plot_multiplicity_vs_properties_log_with_fit(
     ]
 
     property_labels = [
-        'L/M',
-        'Tclump',
-        'Dclump',
-        'RMS_map',
-        'Surfd'
-    ]
+    r'L/M [$L_\odot/M_\odot$]',
+    r'Tclump [K]',
+    r'Dclump [pc]',
+    r'RMS$_{map}$ [MJy/Sr]',
+    r'Surfd [g/cm$^2$]'
+    ]   
 
     log_properties = ['Lclump/Mclump', 'Dclump', 'Surfd']
 
