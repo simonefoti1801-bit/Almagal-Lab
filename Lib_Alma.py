@@ -1158,13 +1158,13 @@ def mult_distribution(clump_stat_A, clump_stat_B):
         for k in range(N):
             if f'1->{k}' in clump_stat_A['mult_stat'][i]:
                 err_mean += clump_stat_A['mult_stat'][i][f'1->{k}'] * (k - mean_n) ** 2
-    err_mean_n = np.sqrt(err_mean / N_sources_A) / np.sqrt(N_sources_A)
+    err_mean_n = np.sqrt(err_mean / np.sum(n)) / np.sqrt(np.sum(n))
     err_mean=0
     for i in range(len(clump_stat_B['CLUMP'])):
         for k in range(N):
             if f'1->{k}' in clump_stat_B['mult_stat'][i]:
                 err_mean += clump_stat_B['mult_stat'][i][f'1->{k}'] * (k - mean_m) ** 2
-    err_mean_m = np.sqrt(err_mean / N_sources_B) / np.sqrt(N_sources_B)
+    err_mean_m = np.sqrt(err_mean / np.sum(m)) / np.sqrt(np.sum(m))
 
     # =========================
     # Errori poissoniani
@@ -1174,8 +1174,8 @@ def mult_distribution(clump_stat_A, clump_stat_B):
     err_m = np.sqrt(m)
 
     # Errori sulle quantità normalizzate
-    err_n_norm = err_n / N_sources_A
-    err_m_norm = err_m / N_sources_B
+    err_n_norm = err_n / np.sum(n)
+    err_m_norm = err_m / np.sum(m)
 
     # =========================
     # Plot
